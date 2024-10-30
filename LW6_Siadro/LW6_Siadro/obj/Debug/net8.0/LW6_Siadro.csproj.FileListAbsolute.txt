@@ -1,0 +1,15 @@
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\obj\Debug\net8.0\LW6_Siadro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\obj\Debug\net8.0\LW6_Siadro.AssemblyInfoInputs.cache
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\obj\Debug\net8.0\LW6_Siadro.AssemblyInfo.cs
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\obj\Debug\net8.0\LW6_Siadro.csproj.CoreCompileInputs.cache
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\obj\Debug\net8.0\LW6_Siadro.sourcelink.json
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\bin\Debug\net8.0\LW6_Siadro.exe
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\bin\Debug\net8.0\LW6_Siadro.deps.json
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\bin\Debug\net8.0\LW6_Siadro.runtimeconfig.json
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\bin\Debug\net8.0\LW6_Siadro.dll
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\bin\Debug\net8.0\LW6_Siadro.pdb
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\obj\Debug\net8.0\LW6_Siadro.dll
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\obj\Debug\net8.0\refint\LW6_Siadro.dll
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\obj\Debug\net8.0\LW6_Siadro.pdb
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\obj\Debug\net8.0\LW6_Siadro.genruntimeconfig.cache
+C:\Users\sjdro\source\repos\LabWork6_Siadro\LW6_Siadro\LW6_Siadro\obj\Debug\net8.0\ref\LW6_Siadro.dll
