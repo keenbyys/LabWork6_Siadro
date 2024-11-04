@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|c:\\users\\sjdro\\source\\repos\\labwork6_siadro\\lw6_siadro\\lw6_siadro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|solutionrelative:lw6_siadro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|c:\\users\\sjdro\\source\\repos\\labwork6_siadro\\lw6_siadro\\lw6_siadro\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|solutionrelative:lw6_siadro\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|c:\\users\\sjdro\\source\\repos\\labwork6_siadro\\lw6_siadro\\lw6_siadro\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|solutionrelative:lw6_siadro\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|c:\\users\\sjdro\\source\\repos\\labwork6_siadro\\lw6_siadro\\lw6_siadro\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|solutionrelative:lw6_siadro\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|c:\\users\\sjdro\\source\\repos\\labwork6_siadro\\lw6_siadro\\lw6_siadro\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|solutionrelative:lw6_siadro\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|c:\\users\\sjdro\\source\\repos\\labwork6_siadro\\lw6_siadro\\lw6_siadro\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|solutionrelative:lw6_siadro\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|c:\\users\\sjdro\\source\\repos\\labwork6_siadro\\lw6_siadro\\lw6_siadro\\monitoringflight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|solutionrelative:lw6_siadro\\monitoringflight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|c:\\users\\sjdro\\source\\repos\\labwork6_siadro\\lw6_siadro\\lw6_siadro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|solutionrelative:lw6_siadro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|c:\\users\\sjdro\\source\\repos\\labwork6_siadro\\lw6_siadro\\lw6_siadro\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F39A71F-7A41-42CB-ACF4-F16293035923}|LW6_Siadro\\LW6_Siadro.csproj|solutionrelative:lw6_siadro\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,68 +42,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "MonitoringFlight.cs",
+              "DocumentMoniker": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\MonitoringFlight.cs",
+              "RelativeDocumentMoniker": "LW6_Siadro\\MonitoringFlight.cs",
+              "ToolTip": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\MonitoringFlight.cs",
+              "RelativeToolTip": "LW6_Siadro\\MonitoringFlight.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAwwE4AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T19:33:16.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Flight.cs",
               "DocumentMoniker": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\Flight.cs",
               "RelativeDocumentMoniker": "LW6_Siadro\\Flight.cs",
               "ToolTip": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\Flight.cs",
               "RelativeToolTip": "LW6_Siadro\\Flight.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAowB4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAwwGMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T16:48:25.927Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Staff.cs",
               "DocumentMoniker": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\Staff.cs",
               "RelativeDocumentMoniker": "LW6_Siadro\\Staff.cs",
               "ToolTip": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\Staff.cs",
               "RelativeToolTip": "LW6_Siadro\\Staff.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T18:42:53.691Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T18:42:53.691Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Passenger.cs",
               "DocumentMoniker": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\Passenger.cs",
               "RelativeDocumentMoniker": "LW6_Siadro\\Passenger.cs",
               "ToolTip": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\Passenger.cs",
               "RelativeToolTip": "LW6_Siadro\\Passenger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T18:04:34.929Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Member.cs",
               "DocumentMoniker": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\Member.cs",
               "RelativeDocumentMoniker": "LW6_Siadro\\Member.cs",
               "ToolTip": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\Member.cs",
               "RelativeToolTip": "LW6_Siadro\\Member.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T17:01:11.415Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\Program.cs",
               "RelativeDocumentMoniker": "LW6_Siadro\\Program.cs",
               "ToolTip": "C:\\Users\\sjdro\\source\\repos\\LabWork6_Siadro\\LW6_Siadro\\LW6_Siadro\\Program.cs",
               "RelativeToolTip": "LW6_Siadro\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T14:16:16.163Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T14:16:16.163Z"
             }
           ]
         }

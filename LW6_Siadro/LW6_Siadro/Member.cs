@@ -12,8 +12,8 @@ namespace LW6_Siadro
 
         public Member(string name) => Name = name;
 
-        public abstract void NotificationChangeStatus(Flight flight);
+        public abstract void NotificationChangeStatus(string status, bool IsVIP);
 
-        public abstract string PrintInfo();
+        //public abstract string PrintInfo();
     }
 }

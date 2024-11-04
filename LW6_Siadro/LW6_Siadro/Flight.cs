@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace LW6_Siadro
 
         private List<Member> passengers = new List<Member>();
         private List<Member> _staff = new List<Member>();
-        private List<Flight> flights = new List<Flight>();
+        //private List<Flight> flights = new List<Flight>();
 
 
         public void AddPassenger(Passenger passenger)
@@ -40,12 +41,6 @@ namespace LW6_Siadro
             _staff.Add(staff);
             Subscribe(staff);
         }
-
-        public void AddFlight(Flight flight)
-        {
-            flights.Add(flight);
-        }
-
 
         public void Subscribe(Member member)
         {
@@ -70,32 +65,38 @@ namespace LW6_Siadro
                     break;
             }
         }
-
-
-        public void ChangeStatus(Flight flight, int randomNumber, string nameFlight)
+        private void UnsubscribeAll()
         {
-            var passengerFlight = flights.Find(f => f.Name == nameFlight);
-            switch (flight.Status)
+            foreach (Member passenger in passengers)
             {
-                case "Expected":
-                    
-                    switch (randomNumber)
-                    {
-                        case 0:
-                            Status = "Boarding";
-                            break;
-                    }
-
-
-                    Status = "Boarding";
-                    Console.WriteLine();
-                    FlightStatusChanged?.Invoke(this);
-                    break;
-
-                case "":
-                    break;
+                Unsubscribe(passenger);
+            }
+            foreach (Member staffMember in _staff)
+            {
+                Unsubscribe(staffMember);
             }
         }
+
+        public void Boarding()
+        {
+            Status = "Boarding";
+            FlightStatusChanged?.Invoke(this);
+        }
+
+        public void Canceled()
+        {
+            Status = "Canceled";
+            FlightStatusChanged?.Invoke(this);
+            UnsubscribeAll();
+        }
+
+        public void Dispatched()
+        {
+            Status = "Dispatched";
+            FlightStatusChanged?.Invoke(this);
+            UnsubscribeAll();
+        }
+
 
     }
 }

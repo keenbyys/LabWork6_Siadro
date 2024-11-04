@@ -11,12 +11,9 @@ namespace LW6_Siadro
     {
         public Staff(string name) : base(name) { }
 
-        public override void NotificationChangeStatus(Flight flight)
+        public override void NotificationChangeStatus(string status, bool IsVIP)
         {
-            Console.WriteLine(" {0} (passenger): Flight [{1}] is now [{2}]", 
-                Name, flight.Name, flight.Status);
+                Console.WriteLine("{Name} (staff): Flight status updated to {status}", Name, status);
         }
-
-        public override string PrintInfo() { return Name; }
     }
 }

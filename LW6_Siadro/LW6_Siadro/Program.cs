@@ -8,21 +8,9 @@ namespace LW6_Siadro
     {
         static void Main(string[] args)
         {
-            string namePassenger = "Nona";
-            string nameFlight = "001";
-            string statusFligt = "Expected";
+            MonitoringFlight monitoringFlight = new MonitoringFlight();
 
-            Passenger passenger = new Passenger(namePassenger);
-            Flight flight = new Flight(nameFlight, statusFligt);
-
-            Random random = new Random();
-
-            flight.AddPassenger(passenger);
-            flight.AddFlight(flight);
-
-            Console.WriteLine(" {0}", passenger, flight);
-
-            flight.ChangeStatus(flight, 0, statusFligt);
+            monitoringFlight.StartMonitoring();
         }
     }
 }
