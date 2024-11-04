@@ -10,93 +10,86 @@ namespace LW6_Siadro
     public class Flight
     {
         public string Name { get; set; }
-        public string Status {  get; set; }
+        public string Status { get; set; }
 
-        public Flight(string name, string status)
+        public Flight(string name)
         {
             Name = name;
-            Status = status;
+            Status = "Expected";
         }
 
-        public string PrintName() { return Name; }
+        public delegate void StatusChangeHandler(Flight flight);
+        public event StatusChangeHandler FlightStatusChange;
 
-        public string PrintStatus() { return Status; }
+        private List<Passenger> regularPassengersList = new List<Passenger>();
+        private List<PassengerVIP> vipPassengersList = new List<PassengerVIP>();
+        private List<Staff> staffList = new List<Staff>();
 
-        public delegate void FlightStatusChangeHandler(Flight flight);
-        public event FlightStatusChangeHandler FlightStatusChanged;
-
-        private List<Member> passengers = new List<Member>();
-        private List<Member> _staff = new List<Member>();
-        //private List<Flight> flights = new List<Flight>();
-
-
-        public void AddPassenger(Passenger passenger)
+        public void RegisterPassenger(Passenger passenger)
         {
-            passengers.Add(passenger);
-            Subscribe(passenger);
-        }
-            
-        public void AddStaff(Staff staff)
-        {
-            _staff.Add(staff);
-            Subscribe(staff);
-        }
-
-        public void Subscribe(Member member)
-        {
-            switch (member)
+            if (passenger is PassengerVIP passengerVIP)
             {
-                case null: break;
-
-                default:
-                    FlightStatusChanged += member.NotificationChangeStatus;
-                    break;
+                vipPassengersList.Add(passengerVIP);
             }
-        }
-
-        public void Unsubscribe(Member member)
-        {
-            switch (member)
+            else
             {
-                case null: break;
-
-                default:
-                    FlightStatusChanged -= member.NotificationChangeStatus;
-                    break;
+                regularPassengersList.Add(passenger);
             }
+
+            FlightStatusChange += passenger.NotificationChangeStatus;
         }
-        private void UnsubscribeAll()
+
+        public void RegisterStaff(Staff staff)
         {
-            foreach (Member passenger in passengers)
+            staffList.Add(staff);
+            FlightStatusChange += staff.NotificationChangeStatus;
+        }
+
+        public void UpdateStatus(string newStatus)
+        {
+            Status = newStatus;
+            Console.WriteLine("\n Flight {0} status updated to {1}", Name, Status);
+
+            // Notify VIP passengers first
+            foreach (PassengerVIP passengerVIP in vipPassengersList)
             {
-                Unsubscribe(passenger);
+                passengerVIP.NotificationChangeStatus(this);
             }
-            foreach (Member staffMember in _staff)
+
+            // Notify regular passengers
+            foreach (Passenger passenger in regularPassengersList)
             {
-                Unsubscribe(staffMember);
+                passenger.NotificationChangeStatus(this);
             }
+
+            // Notify staff
+            foreach (Staff staff in staffList)
+            {
+                staff.NotificationChangeStatus(this);
+            }
+
+            FlightStatusChange?.Invoke(this);
         }
 
-        public void Boarding()
+        public void UnsubscribeAll()
         {
-            Status = "Boarding";
-            FlightStatusChanged?.Invoke(this);
+            // Clear all subscriptions
+            foreach (PassengerVIP passengerVIP in vipPassengersList)
+            {
+                FlightStatusChange -= passengerVIP.NotificationChangeStatus;
+            }
+            foreach (Passenger passenger in regularPassengersList)
+            {
+                FlightStatusChange -= passenger.NotificationChangeStatus;
+            }
+            foreach (Staff staff in staffList)
+            {
+                FlightStatusChange -= staff.NotificationChangeStatus;
+            }
+
+            vipPassengersList.Clear();
+            regularPassengersList.Clear();
+            staffList.Clear();
         }
-
-        public void Canceled()
-        {
-            Status = "Canceled";
-            FlightStatusChanged?.Invoke(this);
-            UnsubscribeAll();
-        }
-
-        public void Dispatched()
-        {
-            Status = "Dispatched";
-            FlightStatusChanged?.Invoke(this);
-            UnsubscribeAll();
-        }
-
-
     }
 }
