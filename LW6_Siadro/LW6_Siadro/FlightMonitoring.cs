@@ -25,6 +25,8 @@ namespace LW6_Siadro
             return flightsList.Find(f => f.Name == flightName);
         }
 
+
+
         public void ChangeFlightStatus(Flight flight)
         {
             switch (flight.Status)
@@ -55,6 +57,21 @@ namespace LW6_Siadro
                     flight.UpdateStatus("Dispatched"); // Update to Dispatched
                     flight.UnsubscribeAll(); // Unsubscribe after dispatch
                     break;
+            }
+        }
+
+        public void PrintFlights()
+        {
+            if (flightsList.Count == 0)
+            {
+                Console.WriteLine("\n No flights available.");
+                return;
+            }
+
+            Console.WriteLine("\n List of Flights:");
+            foreach (var flight in flightsList)
+            {
+                Console.WriteLine(" Flight Name: [{0}] (status — {1})", flight.Name, flight.Status);
             }
         }
     }

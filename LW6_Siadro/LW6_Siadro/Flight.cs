@@ -25,6 +25,11 @@ namespace LW6_Siadro
         private List<PassengerVIP> vipPassengersList = new List<PassengerVIP>();
         private List<Staff> staffList = new List<Staff>();
 
+        public bool NoRegisteredUsers()
+        {
+            return regularPassengersList.Count == 0 && vipPassengersList.Count == 0 && staffList.Count == 0;
+        }
+
         public void RegisterPassenger(Passenger passenger)
         {
             if (passenger is PassengerVIP passengerVIP)
@@ -47,28 +52,32 @@ namespace LW6_Siadro
 
         public void UpdateStatus(string newStatus)
         {
-            Status = newStatus;
-            Console.WriteLine("\n Flight {0} status updated to {1}", Name, Status);
-
-            // Notify VIP passengers first
-            foreach (PassengerVIP passengerVIP in vipPassengersList)
+            if (Status != newStatus)
             {
-                passengerVIP.NotificationChangeStatus(this);
-            }
+                Status = newStatus;
+                Console.WriteLine("\n Flight {0} status updated to {1}", Name, Status);
 
-            // Notify regular passengers
-            foreach (Passenger passenger in regularPassengersList)
-            {
-                passenger.NotificationChangeStatus(this);
-            }
+                // Notify VIP passengers first
+                foreach (PassengerVIP passengerVIP in vipPassengersList)
+                {
+                    passengerVIP.NotificationChangeStatus(this);
+                }
 
-            // Notify staff
-            foreach (Staff staff in staffList)
-            {
-                staff.NotificationChangeStatus(this);
-            }
+                // Notify regular passengers
+                foreach (Passenger passenger in regularPassengersList)
+                {
+                    passenger.NotificationChangeStatus(this);
+                }
 
-            FlightStatusChange?.Invoke(this);
+                // Notify staff
+                foreach (Staff staff in staffList)
+                {
+                    staff.NotificationChangeStatus(this);
+                }
+
+                // Trigger the event for flight status change
+                //FlightStatusChange?.Invoke(this);
+            }
         }
 
         public void UnsubscribeAll()

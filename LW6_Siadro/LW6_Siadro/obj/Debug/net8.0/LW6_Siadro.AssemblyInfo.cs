@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LW6_Siadro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c9c495d84dd7c90cb8c5e9f8102efc975ee3061")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+377b48a31e5d3bb7bdb82731a26ca8493d56ef5d")]
 [assembly: System.Reflection.AssemblyProductAttribute("LW6_Siadro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LW6_Siadro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
