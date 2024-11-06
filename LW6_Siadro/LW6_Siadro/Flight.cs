@@ -74,9 +74,6 @@ namespace LW6_Siadro
                 {
                     staff.NotificationChangeStatus(this);
                 }
-
-                // Trigger the event for flight status change
-                //FlightStatusChange?.Invoke(this);
             }
         }
 
@@ -95,10 +92,6 @@ namespace LW6_Siadro
             {
                 FlightStatusChange -= staff.NotificationChangeStatus;
             }
-
-            vipPassengersList.Clear();
-            regularPassengersList.Clear();
-            staffList.Clear();
         }
     }
 }

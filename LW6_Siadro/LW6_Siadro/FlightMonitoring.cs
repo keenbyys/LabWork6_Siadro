@@ -8,16 +8,24 @@ namespace LW6_Siadro
 {
     public class FlightMonitoring
     {
-        public FlightMonitoring()
-        { 
-        }
+        public FlightMonitoring() { }
 
         private List<Flight> flightsList = new List<Flight>();
         private Random random = new Random();
 
         public void AddFlight(Flight flight)
         {
-            flightsList.Add(flight);
+            if (flightsList.Any(f => f.Name == flight.Name))
+            {
+                Console.Clear();
+                Console.WriteLine("\n A flight with the number [{0}] already exists.", flight.Name);
+                Program.AddNewFlight();
+            }
+            else
+            {
+                flightsList.Add(flight);
+                Console.WriteLine("\n Flight {0} has been added.", flight.Name);
+            }
         }
 
         public Flight GetFlight(string flightName)
@@ -25,7 +33,15 @@ namespace LW6_Siadro
             return flightsList.Find(f => f.Name == flightName);
         }
 
+        public void RemoveFlights()
+        {
+            var flightsToRemove = flightsList.Where(f => f.Status == "Dispatched" || f.Status == "Canceled").ToList();
 
+            foreach (var flight in flightsToRemove)
+            {
+                flightsList.Remove(flight);
+            }
+        }
 
         public void ChangeFlightStatus(Flight flight)
         {
@@ -33,29 +49,46 @@ namespace LW6_Siadro
             {
                 case "Expected":
                     int randomStatus = random.Next(3);
-                    if (randomStatus == 0)
-                    {
-                        flight.UpdateStatus("Canceled");
-                        flight.UnsubscribeAll(); // Unsubscribe if canceled
-                    }
-                    else if (randomStatus == 1)
-                    {
-                        flight.UpdateStatus("Delayed");
-                    }
-                    else
-                    {
-                        flight.UpdateStatus("Boarding");
-                    }
 
+                    switch (randomStatus)
+                    {
+                        case 0:
+                            flight.UpdateStatus("Canceled");
+                            flight.UnsubscribeAll();
+                            RemoveFlights();
+                            break;
+
+                        case 1:
+                            flight.UpdateStatus("Delayed");
+                            break;
+
+                        case 2:
+                            flight.UpdateStatus("Boarding");
+                            break;
+                    }
                     break;
 
                 case "Delayed":
-                    flight.UpdateStatus("Boarding"); // Update to Boarding
+                    randomStatus = random.Next(2);
+
+                    switch (randomStatus) 
+                    {
+                        case 0:
+                            flight.UpdateStatus("Canceled");
+                            flight.UnsubscribeAll();
+                            RemoveFlights();
+                            break;
+
+                        case 1:
+                            flight.UpdateStatus("Boarding");
+                            break;
+                    }
                     break;
 
                 case "Boarding":
-                    flight.UpdateStatus("Dispatched"); // Update to Dispatched
-                    flight.UnsubscribeAll(); // Unsubscribe after dispatch
+                    flight.UpdateStatus("Dispatched");
+                    flight.UnsubscribeAll();
+                    RemoveFlights();
                     break;
             }
         }
@@ -65,6 +98,7 @@ namespace LW6_Siadro
             if (flightsList.Count == 0)
             {
                 Console.WriteLine("\n No flights available.");
+                Program.ConfirmationAddNewFlight();
                 return;
             }
 

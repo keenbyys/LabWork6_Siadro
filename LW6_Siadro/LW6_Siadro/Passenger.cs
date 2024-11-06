@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LW6_Siadro
 {
-    public class  Passenger : Member
+    public class Passenger : Member
     {
         public Passenger(string name) : base(name) { }
 

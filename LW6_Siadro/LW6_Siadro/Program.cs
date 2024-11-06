@@ -8,27 +8,32 @@ namespace LW6_Siadro
 {
     class Program
     {
-        private static bool isInputCorrect = true;
         private static FlightMonitoring flightMonitor = new FlightMonitoring();
-        private static int choice;
-        private static string passengerName;
+
         private static bool isVIP;
+        private static bool isInputCorrect = true;
+
         private static int passengerStatus;
+        private static int choice;
+        
+        private static string passengerName;
         private static string flightNameForPassenger;
+        private static string staffName;
+        private static string flightNameForStatus;
 
         public static void MainMenu()
         {
-            Console.WriteLine("\n Select an action: " +
-                "\n [1] Add flight " +
-                "\n [2] Register passenger " +
-                "\n [3] Register staff " +
-                "\n [4] Change flight status " +
-                "\n [5] Exit");
-            
             while (isInputCorrect)
             {
                 try
                 {
+                    Console.WriteLine("\n Select an action: " +
+                        "\n [1] Add flight " +
+                        "\n [2] Register passenger " +
+                        "\n [3] Register staff " +
+                        "\n [4] Change flight status " +
+                        "\n [5] Exit");
+
                     Console.Write("\n Enter a number: ");
                     choice = Convert.ToInt32(Console.ReadLine());
 
@@ -48,17 +53,14 @@ namespace LW6_Siadro
                         
                         case 3:
                             Console.Clear();
-                            RegisterNewStaff();
+                            ConfirmationSelect(3);
                             isInputCorrect = false;
                             break;
                         
                         case 4:
                             Console.Clear();
-                            ChangeFlightStatusMenu();
-                            Console.WriteLine("\n Continue monitoring?" +
-                                "\n [1] Yes" +
-                                "\n [2] No");
-                            isInputCorrect = Console.ReadLine().ToLower() == "1";
+                            ConfirmationSelect(4);
+                            isInputCorrect = false;
                             break;
                         
                         case 5:
@@ -100,40 +102,50 @@ namespace LW6_Siadro
                     Console.Write("\n Your choice (number): ");
                     choice = Convert.ToInt32(Console.ReadLine());
 
-                    if (choice == 1)
+                    switch (choice)
                     {
-                        switch(choiceNum)
-                        {
-                            case 1:
-                                Console.Clear();
-                                AddNewFlight();
-                                isInputCorrect = false;
-                                break;
+                        case 1:
+                            switch (choiceNum)
+                            {
+                                case 1:
+                                    Console.Clear();
+                                    AddNewFlight();
+                                    isInputCorrect = false;
+                                    break;
 
-                            case 2:
-                                Console.Clear();
-                                AddNamePassenger();
-                                isInputCorrect = false;
-                                break;
-                        }
+                                case 2:
+                                    Console.Clear();
+                                    AddNamePassenger();
+                                    isInputCorrect = false;
+                                    break;
 
-                        Console.Clear();
-                        AddStatusPassanger(passengerName);
-                        isInputCorrect = false;
-                    }
-                    else if (choice == 2)
-                    {
-                        Console.Clear();
-                        MainMenu();
-                        isInputCorrect = false;
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
-                            "\n Try entering it again: 1 or 2! :D");
-                        ConfirmationSelect(choiceNum);
-                        isInputCorrect = false;
+                                case 3:
+                                    Console.Clear();
+                                    AddNameStaff();
+                                    isInputCorrect = false;
+                                    break;
+
+                                case 4:
+                                    Console.Clear();
+                                    ChangeFlightStatus();
+                                    isInputCorrect = false;
+                                    break;
+                            }
+                            break;
+
+                        case 2:
+                            Console.Clear();
+                            MainMenu();
+                            isInputCorrect = false;
+                            break;
+
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                                "\n Try entering it again: 1 or 2! :D");
+                            ConfirmationSelect(choiceNum);
+                            isInputCorrect = false;
+                            break;
                     }
                 }
                 catch
@@ -167,7 +179,6 @@ namespace LW6_Siadro
                     default:
                         Flight flight = new Flight(flightName);
                         flightMonitor.AddFlight(flight);
-                        Console.WriteLine(" Flight added.");
                         MainMenu();
                         isInputCorrect = false;
                         break;
@@ -182,23 +193,26 @@ namespace LW6_Siadro
             while (isInputCorrect)
             {
                 passengerName = Console.ReadLine();
-                if (passengerName == "")
+
+                switch (passengerName)
                 {
-                    Console.Clear();
-                    Console.WriteLine("\n You haven't entered anything. Please try again!");
-                    AddNamePassenger();
-                    isInputCorrect = false;
-                }
-                else
-                {
-                    Console.Clear();
-                    ConfirmationSelectName(passengerName);
-                    isInputCorrect = false;
+                    case "":
+                        Console.Clear();
+                        Console.WriteLine("\n You haven't entered anything. Please try again!");
+                        AddNamePassenger();
+                        isInputCorrect = false;
+                        break;
+
+                    default:
+                        Console.Clear();
+                        ConfirmationSelectNamePassenger(passengerName);
+                        isInputCorrect = false;
+                        break;
                 }
             }
         }
 
-        public static void ConfirmationSelectName(string passengerName)
+        public static void ConfirmationSelectNamePassenger(string passengerName)
         {
             while (isInputCorrect)
             {
@@ -211,25 +225,27 @@ namespace LW6_Siadro
                     Console.Write("\n Your choice (number): ");
                     choice = Convert.ToInt32(Console.ReadLine());
 
-                    if (choice == 1)
+                    switch (choice)
                     {
-                        Console.Clear();
-                        AddStatusPassanger(passengerName);
-                        isInputCorrect = false;
-                    }
-                    else if (choice == 2)
-                    {
-                        Console.Clear();
-                        AddNamePassenger();
-                        isInputCorrect = false;
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
-                            "\n Try entering it again: 1 or 2! :D");
-                        ConfirmationSelectName(passengerName);
-                        isInputCorrect = false;
+                        case 1:
+                            Console.Clear();
+                            AddStatusPassanger(passengerName);
+                            isInputCorrect = false;
+                            break;
+
+                        case 2:
+                            Console.Clear();
+                            AddNamePassenger();
+                            isInputCorrect = false;
+                            break;
+
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                                "\n Try entering it again: 1 or 2! :D");
+                            ConfirmationSelectNamePassenger(passengerName);
+                            isInputCorrect = false;
+                            break;
                     }
                 }
                 catch
@@ -237,7 +253,7 @@ namespace LW6_Siadro
                     Console.Clear();
                     Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
                         "\n Try entering it again: 1 or 2! :D");
-                    ConfirmationSelectName(passengerName);
+                    ConfirmationSelectNamePassenger(passengerName);
                     isInputCorrect = false;
                 }
             }
@@ -256,25 +272,27 @@ namespace LW6_Siadro
                     Console.Write("\n Your choice (number): ");
                     choice = Convert.ToInt32(Console.ReadLine());
 
-                    if (choice == 1)
+                    switch (choice)
                     {
-                        Console.Clear();
-                        isVIP = true;
-                        ConfirmationSelectVIP(passengerName, isVIP);
-                    }
-                    else if (choice == 2)
-                    {
-                        Console.Clear();
-                        isVIP = false;
-                        ConfirmationSelectVIP(passengerName, isVIP);
-                    }
-                    else 
-                    {
-                        Console.Clear();
-                        Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
-                            "\n Try entering it again: 1 or 2! :D");
-                        AddStatusPassanger(passengerName);
-                        isInputCorrect = false;
+                        case 1:
+                            Console.Clear();
+                            isVIP = true;
+                            ConfirmationSelectVIP(passengerName, isVIP);
+                            break;
+
+                        case 2:
+                            Console.Clear();
+                            isVIP = false;
+                            ConfirmationSelectVIP(passengerName, isVIP);
+                            break;
+
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                                "\n Try entering it again: 1 or 2! :D");
+                            AddStatusPassanger(passengerName);
+                            isInputCorrect = false;
+                            break;
                     }
                 }
                 catch
@@ -301,25 +319,27 @@ namespace LW6_Siadro
                     Console.Write("\n Your choice (number): ");
                     choice = Convert.ToInt32(Console.ReadLine());
 
-                    if (choice == 1)
+                    switch (choice)
                     {
-                        Console.Clear();
-                        AddPassengerToFlight(passengerName, isVIP);
-                        isInputCorrect = false;
-                    }
-                    else if (choice == 2)
-                    {
-                        Console.Clear();
-                        AddStatusPassanger(passengerName);
-                        isInputCorrect = false;
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
-                            "\n Try entering it again: 1 or 2! :D");
-                        ConfirmationSelectVIP(passengerName, isVIP);
-                        isInputCorrect = false;
+                        case 1:
+                            Console.Clear();
+                            AddPassengerToFlight(passengerName, isVIP);
+                            isInputCorrect = false;
+                            break;
+
+                        case 2:
+                            Console.Clear();
+                            AddStatusPassanger(passengerName);
+                            isInputCorrect = false;
+                            break;
+
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                                "\n Try entering it again: 1 or 2! :D");
+                            ConfirmationSelectVIP(passengerName, isVIP);
+                            isInputCorrect = false;
+                            break;
                     }
                 }
                 catch
@@ -335,24 +355,27 @@ namespace LW6_Siadro
 
         public static void AddPassengerToFlight(string passengerName, bool isVIP) 
         {
+            flightMonitor.PrintFlights();
+
             while (isInputCorrect)
             {
-                flightMonitor.PrintFlights();
                 Console.Write("\n Enter name (flight): ");
                 flightNameForPassenger = Console.ReadLine();
 
-                if (flightNameForPassenger == "")
+                switch (flightNameForPassenger)
                 {
-                    Console.Clear();
-                    Console.WriteLine("\n You haven't entered anything. Please try again!");
-                    AddPassengerToFlight(passengerName, isVIP);
-                    isInputCorrect = false;
-                }
-                else
-                {
-                    Console.Clear();
-                    ConfirmationSelectNameFlight(passengerName, isVIP, flightNameForPassenger);
-                    isInputCorrect = false;
+                    case "":
+                        Console.Clear();
+                        Console.WriteLine("\n You haven't entered anything. Please try again!");
+                        AddPassengerToFlight(passengerName, isVIP);
+                        isInputCorrect = false;
+                        break;
+
+                    default:
+                        Console.Clear();
+                        ConfirmationSelectNameFlight(passengerName, isVIP, flightNameForPassenger);
+                        isInputCorrect = false;
+                        break;
                 }
             }
         }
@@ -370,39 +393,41 @@ namespace LW6_Siadro
                     Console.Write("\n Your choice (number): ");
                     choice = Convert.ToInt32(Console.ReadLine());
 
-                    if (choice == 1)
+                    switch (choice)
                     {
-                        Console.Clear();
-                        var passengerFlight = flightMonitor.GetFlight(flightNameForPassenger);
+                        case 1:
+                            Console.Clear();
+                            var passengerFlight = flightMonitor.GetFlight(flightNameForPassenger);
 
-                        if (passengerFlight != null)
-                        {
-                            Passenger passenger = isVIP ? new PassengerVIP(passengerName) : new Passenger(passengerName);
-                            passengerFlight.RegisterPassenger(passenger);
-                            Console.WriteLine(isVIP ? "\n VIP Passenger registered." : "\n Passenger registered.");
-                            MainMenu();
-                            isInputCorrect = false;
-                        }
-                        else
-                        {
-                            Console.WriteLine("\n Flight not found.");
+                            if (passengerFlight != null)
+                            {
+                                Passenger passenger = isVIP ? new PassengerVIP(passengerName) : new Passenger(passengerName);
+                                passengerFlight.RegisterPassenger(passenger);
+                                Console.WriteLine(isVIP ? "\n VIP Passenger registered." : "\n Passenger registered.");
+                                MainMenu();
+                                isInputCorrect = false;
+                            }
+                            else
+                            {
+                                Console.WriteLine("\n Flight not found.");
+                                ConfirmationAddNewFlight();
+                                isInputCorrect = false;
+                            }
+                            break;
+
+                        case 2:
+                            Console.Clear();
                             AddPassengerToFlight(passengerName, isVIP);
                             isInputCorrect = false;
-                        }
-                    }
-                    else if (choice == 2)
-                    {
-                        Console.Clear();
-                        AddPassengerToFlight(passengerName, isVIP);
-                        isInputCorrect = false;
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
-                            "\n Try entering it again: 1 or 2! :D");
-                        ConfirmationSelectNameFlight(passengerName, isVIP, flightNameForPassenger);
-                        isInputCorrect = false;
+                            break;
+
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                                "\n Try entering it again: 1 or 2! :D");
+                            ConfirmationSelectNameFlight(passengerName, isVIP, flightNameForPassenger);
+                            isInputCorrect = false;
+                            break;
                     }
                 }
                 catch
@@ -414,58 +439,317 @@ namespace LW6_Siadro
                     isInputCorrect = false;
                 }
             }
-
-            
         }
 
-        public static void RegisterNewStaff()
+        public static void AddNameStaff()
         {
-            Console.Write("Enter Staff Name: ");
-            string staffName = Console.ReadLine();
-            Console.Write("Enter Flight Number: ");
-            string flightNameForStaff = Console.ReadLine();
-            var staffFlight = flightMonitor.GetFlight(flightNameForStaff);
-            if (staffFlight != null)
+            Console.Write("\n Enter name (staff): ");
+            
+            while (isInputCorrect)
             {
-                var staff = new Staff(staffName);
-                staffFlight.RegisterStaff(staff);
-                Console.WriteLine("Staff registered.");
-            }
-            else
-            {
-                Console.WriteLine("Flight not found.");
+                staffName = Console.ReadLine();
+
+                switch (staffName)
+                {
+                    case "":
+                        Console.Clear();
+                        Console.WriteLine("\n You haven't entered anything. Please try again!");
+                        AddNameStaff();
+                        isInputCorrect = false;
+                        break;
+
+                    default:
+                        Console.Clear();
+                        ConfirmationSelectNameStaff(staffName);
+                        isInputCorrect = false;
+                        break;
+                }
             }
         }
 
-        public static void ChangeFlightStatusMenu()
+        public static void ConfirmationSelectNameStaff(string staffName)
+        {
+            while (isInputCorrect) 
+            {
+                try 
+                {
+                    Console.WriteLine("\n Are you happy with the name you've given the staff?" +
+                        "\n [1] Yes" +
+                        "\n [2] Nah, I want to change the staff name.");
+
+                    Console.Write("\n Your choice (number): ");
+                    choice = Convert.ToInt32(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.Clear();
+                            AddStaffToFlight(staffName);
+                            isInputCorrect = false;
+                            break;
+
+                        case 2:
+                            Console.Clear();
+                            AddNameStaff();
+                            isInputCorrect = false;
+                            break;
+
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                                "\n Try entering it again: 1 or 2! :D");
+                            ConfirmationSelectNameStaff(staffName);
+                            isInputCorrect = false;
+                            break;
+                    }
+                }
+                catch
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                        "\n Try entering it again: 1 or 2! :D");
+                    ConfirmationSelectNameStaff(staffName);
+                    isInputCorrect = false;
+                }
+            } 
+        }
+
+        public static void AddStaffToFlight(string staffName)
         {
             flightMonitor.PrintFlights();
-            Console.Write("Enter Flight Number: ");
-            string flightNameForStatus = Console.ReadLine();
-            var statusFlight = flightMonitor.GetFlight(flightNameForStatus);
-
-
-            if (statusFlight != null)
+            
+            while (isInputCorrect)
             {
-                if (statusFlight.NoRegisteredUsers())
-                {
-                    Console.WriteLine("Flight {0} has no registered passengers or staff.", statusFlight.Name);
-                    MainMenu();
-                }
+                Console.Write("\n Enter name (flight): ");
+                string flightNameForStaff = Console.ReadLine();
 
-                if (statusFlight.Status == "Dispatched" || statusFlight.Status == "Canceled")
+                switch (flightNameForPassenger)
                 {
-                    Console.WriteLine("Users have already been unsubscribed from Flight {0} " +
-                        "as it has reached a final status: {1}.", statusFlight.Name, statusFlight.Status);
-                }
-                else
-                {
-                    flightMonitor.ChangeFlightStatus(statusFlight);
+                    case "":
+                        Console.Clear();
+                        Console.WriteLine("\n You haven't entered anything. Please try again!");
+                        AddStaffToFlight(staffName);
+                        isInputCorrect = false;
+                        break;
+
+                    default:
+                        Console.Clear();
+                        ConfirmationSelectNameFlight(staffName, flightNameForStaff);
+                        isInputCorrect = false;
+                        break;
                 }
             }
-            else
+        }
+
+        public static void ConfirmationSelectNameFlight(string staffName, string flightNameForStaff)
+        {
+            while (isInputCorrect)
             {
-                Console.WriteLine("Flight not found.");
+                try
+                {
+                    Console.WriteLine("\n Are you sure you have chosen the right flight?" +
+                        "\n [1] Yes" +
+                        "\n [2] Nah, I want to change the flight.");
+
+                    Console.Write("\n Your choice (number): ");
+                    choice = Convert.ToInt32(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.Clear();
+                            var staffFlight = flightMonitor.GetFlight(flightNameForStaff);
+
+                            if (staffFlight != null)
+                            {
+                                var staff = new Staff(staffName);
+                                staffFlight.RegisterStaff(staff);
+                                Console.WriteLine("\n Staff registered.");
+                                MainMenu();
+                                isInputCorrect = false;
+                            }
+                            else
+                            {
+                                Console.WriteLine("\n Flight not found.");
+                                ConfirmationAddNewFlight();
+                                isInputCorrect = false;
+                            }
+                            break;
+
+                        case 2:
+                            Console.Clear();
+                            AddStaffToFlight(staffName);
+                            isInputCorrect = false;
+                            break;
+
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                                "\n Try entering it again: 1 or 2! :D");
+                            ConfirmationSelectNameFlight(staffName, flightNameForStaff);
+                            isInputCorrect = false;
+                            break;
+                    }
+                }
+                catch
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                        "\n Try entering it again: 1 or 2! :D");
+                    ConfirmationSelectNameFlight(staffName, flightNameForStaff);
+                    isInputCorrect = false;
+                }
+            }
+        }
+
+        public static void ConfirmationAddNewFlight()
+        {
+            while (isInputCorrect)
+            {
+                try
+                {
+                    Console.WriteLine("\n Would you like to create a flight or select another existing flight?" +
+                        "\n [1] Yes, to create a new flight." +
+                        "\n [2] Yep, to select another existing flight." +
+                        "\n [3] Nope, I want to go back to the main menu.");
+
+                    Console.Write("\n Your choice (number): ");
+                    choice = Convert.ToInt32(Console.ReadLine());
+
+                    switch (choice) 
+                    {
+                        case 1:
+                            Console.Clear();
+                            AddNewFlight();
+                            isInputCorrect = false;
+                            break;
+
+                        case 2:
+                            Console.Clear();
+                            AddStaffToFlight(staffName);
+                            isInputCorrect = false;
+                            break;
+
+                        case 3:
+                            Console.Clear();
+                            MainMenu();
+                            isInputCorrect = false;
+                            break;
+
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                                "\n Try entering it again: 1 or 2! :D");
+                            ConfirmationAddNewFlight();
+                            isInputCorrect = false;
+                            break;
+                    }
+                }
+                catch
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                        "\n Try entering it again: 1 or 2! :D");
+                    ConfirmationAddNewFlight();
+                    isInputCorrect = false;
+                }
+            }
+        }
+
+        public static void ChangeFlightStatus()
+        {
+            flightMonitor.PrintFlights();
+
+            while (isInputCorrect)
+            {
+                Console.Write("\n Enter name (flight): ");
+                flightNameForStatus = Console.ReadLine();
+
+                switch (flightNameForStatus)
+                {
+                    case "":
+                        Console.Clear();
+                        Console.WriteLine("\n You haven't entered anything. Please try again!");
+                        ChangeFlightStatus();
+                        isInputCorrect = false;
+                        break;
+
+                    default:
+                        Console.Clear();
+                        ConfirmationChangeFlightStatus(flightNameForStatus);
+                        isInputCorrect = false;
+                        break;
+                }
+            }
+        }
+
+        public static void ConfirmationChangeFlightStatus(string flightNameForStatus)
+        {
+            while (isInputCorrect)
+            {
+                try
+                {
+                    Console.WriteLine("\n Are you sure you have chosen the right flight?" +
+                        "\n [1] Yes" +
+                        "\n [2] Nah, I want to change the flight.");
+
+                    Console.Write("\n Your choice (number): ");
+                    choice = Convert.ToInt32(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.Clear();
+                            var statusFlight = flightMonitor.GetFlight(flightNameForStatus);
+
+                            if (statusFlight != null)
+                            {
+                                if (statusFlight.NoRegisteredUsers())
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("\n Flight {0} has no registered passengers or staff.", statusFlight.Name);
+                                    MainMenu();
+                                    isInputCorrect = false;
+                                }
+                                else
+                                {
+                                    Console.Clear();
+                                    flightMonitor.ChangeFlightStatus(statusFlight);
+                                    MainMenu();
+                                    isInputCorrect = false;
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Flight not found.");
+                                ConfirmationAddNewFlight();
+                                isInputCorrect = false;
+                            }
+                            break;
+
+                        case 2:
+                            Console.Clear();
+                            ChangeFlightStatus();
+                            isInputCorrect = false;
+                            break;
+
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                                "\n Try entering it again: 1 or 2! :D");
+                            ConfirmationChangeFlightStatus(flightNameForStatus);
+                            isInputCorrect = false;
+                            break;
+                    }
+                }
+                catch
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n It seems that you have entered a number that is not on this list. " +
+                        "\n Try entering it again: 1 or 2! :D");
+                    ConfirmationChangeFlightStatus(flightNameForStatus);
+                    isInputCorrect = false;
+                }
             }
         }
 
